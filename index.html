@@ -10,11 +10,11 @@
   
   <style>
     :root {
-      --color-bg: #fdfaf5;
-      --color-text: #2d1e12;
-      --color-accent: #6b4e31;
-      --color-accent-light: #a47c5f;
-      --color-cream: #fff8f0;
+      --color-bg: #fafcfe;
+      --color-text: #1e2a38;
+      --color-accent: #0f4c75;      /* Deep teal blue */
+      --color-accent-light: #3282b8;
+      --color-cream: #ebf5ff;      /* Light blue tint */
     }
 
     * {
@@ -39,8 +39,8 @@
     .hero {
       height: 100vh;
       min-height: 720px;
-      background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.52)),
-                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2340&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.55)),
+                  url('https://static.wixstatic.com/media/3962bf_fcdd935cb9444d739616568dbd423ccf~mv2.png/v1/fill/w_980,h_658,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/3962bf_fcdd935cb9444d739616568dbd423ccf~mv2.png') center/cover no-repeat;
       color: white;
       display: flex;
       align-items: center;
@@ -84,7 +84,7 @@
       background: white;
       color: var(--color-accent);
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      box-shadow: 0 12px 32px rgba(15,76,117,0.22);
     }
 
     .btn-outline {
@@ -93,7 +93,7 @@
     }
 
     .btn-outline:hover {
-      background: rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.15);
     }
 
     /* ─── Sections ─── */
@@ -162,12 +162,6 @@
       margin-top: 3.5rem;
     }
 
-    .hours-item time {
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--color-accent);
-    }
-
     /* ─── Footer ─── */
     footer {
       background: var(--color-accent);
@@ -220,20 +214,20 @@
         <p>We roast light-to-medium to let the origin character shine.</p>
         <p>We pull shots with love, steam milk with patience, and hand over drinks with a smile.</p>
         <p style="margin-top:2.5rem; font-style:italic; color:var(--color-accent);">
-          Come for the coffee. Stay for the slowness.
+          Come for the coffee. Stay for the calm.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Signature Drinks -->
-  <section id="menu" style="background:#f8f4ed;">
+  <section id="menu" style="background:#eef5fb;">
     <div class="container">
       <h2>Signature Drinks</h2>
       
       <div class="grid-3">
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=800&q=80" alt="Flat White">
+          <img src="https://dropinblog.net/34243353/files/featured/Flat_White_coffee_in_a_blue_cup.jpg" alt="Honey Flat White in blue cup">
           <div class="card-content">
             <h3>Honey Flat White</h3>
             <p>Double espresso, velvety microfoam, raw honey drizzle</p>
@@ -241,7 +235,7 @@
         </div>
         
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1577968898878-281df6cc31a8?auto=format&fit=crop&w=800&q=80" alt="Filter">
+          <img src="https://m.media-amazon.com/images/I/61cOu9bIUsL._AC_UF894,1000_QL80_.jpg" alt="Single-Origin Filter in blue dripper">
           <div class="card-content">
             <h3>Single-Origin Filter</h3>
             <p>V60 or Kalita — changes weekly</p>
@@ -249,7 +243,7 @@
         </div>
         
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1618761711985-6a482f5986e3?auto=format&fit=crop&w=800&q=80" alt="Iced">
+          <img src="https://www.mrcoffee.com/on/demandware.static/-/Sites-mrcoffee-Library/default/dw7605f7e6/Mr.%20Coffee/2022%2009%20SEP/090622_IceCaramelLatte.jpg" alt="Iced Cardamom Oat Latte">
           <div class="card-content">
             <h3>Cardamom Oat Latte</h3>
             <p>Iced or hot • house-made cardamom syrup</p>
