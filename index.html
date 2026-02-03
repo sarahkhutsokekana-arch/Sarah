@@ -3,101 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SafeRide School Transport • Durban</title>
+  <title>SafeRide • School Transport – Durban</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Replace with your Google Maps API key -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Google Maps JS API – replace YOUR_API_KEY -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-</head>
-<body class="bg-gray-50 font-sans">
 
-  <!-- Top Bar -->
-  <header class="bg-indigo-700 text-white py-3 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-      <div class="text-2xl font-bold">SafeRide KZN</div>
-      <nav class="space-x-6">
-        <a href="#" class="hover:underline">Home</a>
-        <a href="#" class="hover:underline">Routes</a>
-        <a href="#" class="hover:underline">Contact</a>
-        <button class="bg-white text-indigo-700 px-4 py-1.5 rounded-full font-medium hover:bg-gray-100">
-          Login / Register
-        </button>
-      </nav>
+  <style>
+    /* Custom subtle improvements */
+    .card-hover:hover { transform: translateY(-4px); transition: all 0.25s ease; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans antialiased">
+
+  <!-- Header / Navbar -->
+  <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">SR</div>
+          <span class="text-xl font-semibold text-gray-900">SafeRide</span>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Routes</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Safety</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <button class="hidden sm:block px-5 py-2.5 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition shadow-sm">
+            Parent Login
+          </button>
+          <button class="md:hidden text-gray-700">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Hero / Dashboard style -->
-  <main class="max-w-7xl mx-auto px-4 py-8">
-    <div class="grid md:grid-cols-3 gap-6">
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
 
-      <!-- Left - Status Card -->
-      <div class="md:col-span-1 space-y-6">
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
 
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-            <i class="fas fa-child text-indigo-600"></i> Thandiwe M.
-          </h2>
-          <p class="text-gray-600 mb-1">Grade 5 • Bus A12</p>
-          <p class="text-sm text-green-600 font-medium">Next pickup: 07:18 • 4 min away</p>
-        </div>
+      <!-- Left sidebar – Status & Info -->
+      <div class="lg:col-span-4 space-y-6">
 
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="font-semibold mb-3">Bus Status</h3>
-          <div class="space-y-2 text-sm">
-            <p><span class="font-medium">Driver:</span> Sipho N.</p>
-            <p><span class="font-medium">Current stop:</span> Umhlanga Rocks Dr</p>
-            <p><span class="font-medium">ETA to your stop:</span> <span class="text-indigo-700 font-bold">7 min</span></p>
+        <!-- Child / Bus Card -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 card-hover">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
+              <i class="fas fa-child text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold text-gray-900">Thandiwe M.</h2>
+              <p class="text-gray-600">Grade 5 • Bus A12</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-600">Next pickup</span>
+              <span class="font-medium text-green-600">07:18 • 4 min</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Driver</span>
+              <span class="font-medium">Sipho N.</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Current location</span>
+              <span class="font-medium">Umhlanga Rocks Dr</span>
+            </div>
           </div>
         </div>
 
-        <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-medium transition">
-          <i class="fas fa-exclamation-triangle mr-2"></i> Report Issue
-        </button>
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 card-hover">
+          <h3 class="font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <button class="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-xl hover:bg-indigo-50 transition">
+              <i class="fas fa-bell text-indigo-600 text-xl"></i>
+              <span class="text-sm font-medium">Notifications</span>
+            </button>
+            <button class="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-xl hover:bg-red-50 transition">
+              <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+              <span class="text-sm font-medium">Report Issue</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Status Timeline (simple) -->
+        <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-4">Today's Updates</h3>
+          <div class="space-y-4 text-sm">
+            <div class="flex gap-3">
+              <div class="w-2 h-2 mt-2 rounded-full bg-green-500 flex-shrink-0"></div>
+              <div>Bus departed school – on time (14:02)</div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-2 h-2 mt-2 rounded-full bg-amber-500 flex-shrink-0"></div>
+              <div>Minor delay reported (+3 min)</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Right - Map -->
-      <div class="md:col-span-2">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden h-[500px]" id="map"></div>
+      <!-- Right – Main Map Area -->
+      <div class="lg:col-span-8">
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 h-[500px] lg:h-[620px]" id="map"></div>
       </div>
 
     </div>
 
-    <!-- Notifications area -->
-    <div class="mt-8 bg-white rounded-xl shadow p-6">
-      <h2 class="text-xl font-bold mb-4">Recent Updates</h2>
-      <ul class="space-y-3">
-        <li class="flex items-start gap-3 text-sm">
-          <span class="text-green-500 mt-1">●</span>
-          <div>Bus A12 departed school at 14:02. On time.</div>
-        </li>
-        <li class="flex items-start gap-3 text-sm">
-          <span class="text-amber-500 mt-1">●</span>
-          <div>Minor traffic delay reported – ETA +3 minutes.</div>
-        </li>
-      </ul>
-    </div>
   </main>
 
-  <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p>© 2026 SafeRide School Transport • Durban, KwaZulu-Natal • Safety • Reliability • Peace of Mind</p>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm">
+      <p>© 2026 SafeRide School Transport • Durban, KwaZulu-Natal</p>
+      <p class="mt-2">Safety • Real-time Tracking • Peace of Mind for Parents</p>
     </div>
   </footer>
 
+  <!-- Google Maps Script -->
   <script>
-    // Basic Google Map placeholder
+    let map, busMarker, busRoute;
+
     function initMap() {
-      const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -29.8587, lng: 31.0218 }, // Durban approx coords
-        zoom: 12,
+      // Center on Durban area
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -29.8587, lng: 31.0218 },
+        zoom: 13,
+        styles: [
+          { featureType: "water", elementType: "geometry", stylers: [{ color: "#e9e9e9" }, { lightness: 17 }] },
+          { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#f5f5f5" }, { lightness: 20 }] },
+          { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#ffffff" }, { lightness: 17 }] },
+          { featureType: "road", elementType: "geometry", stylers: [{ color: "#ffffff" }, { lightness: 40 }] },
+          { featureType: "poi", elementType: "geometry", stylers: [{ color: "#f5f5f5" }, { lightness: 21 }] },
+        ]
       });
-      // You would normally add polyline for route + marker for current bus position
+
+      // School marker (example)
       new google.maps.Marker({
-        position: { lat: -29.85, lng: 31.03 },
-        map,
-        title: "Bus A12 (live)",
-        icon: "https://maps.google.com/mapfiles/ms/icons/bus.png"
+        position: { lat: -29.8587, lng: 31.0218 },
+        map: map,
+        title: "School",
+        icon: {
+          url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        }
       });
+
+      // Your stop marker (example near Umhlanga)
+      new google.maps.Marker({
+        position: { lat: -29.725, lng: 31.085 },
+        map: map,
+        title: "Your Stop",
+        icon: {
+          url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
+        }
+      });
+
+      // Example bus route polyline
+      const routeCoords = [
+        { lat: -29.8587, lng: 31.0218 },   // school
+        { lat: -29.82,   lng: 31.00 },
+        { lat: -29.78,   lng: 31.02 },
+        { lat: -29.74,   lng: 31.04 },
+        { lat: -29.725,  lng: 31.085 }     // your stop
+      ];
+
+      busRoute = new google.maps.Polyline({
+        path: routeCoords,
+        geodesic: true,
+        strokeColor: "#6366f1",
+        strokeOpacity: 0.7,
+        strokeWeight: 5,
+        map: map
+      });
+
+      // Animated bus marker (simulated movement)
+      busMarker = new google.maps.Marker({
+        position: routeCoords[0],
+        map: map,
+        title: "Bus A12 (Live)",
+        icon: {
+          url: "https://maps.google.com/mapfiles/ms/icons/bus.png",
+          scaledSize: new google.maps.Size(40, 40)
+        },
+        animation: google.maps.Animation.DROP
+      });
+
+      // Simulate bus movement along route (demo only)
+      let step = 0;
+      const totalSteps = routeCoords.length * 20;
+      const interval = setInterval(() => {
+        if (step > totalSteps) {
+          clearInterval(interval);
+          return;
+        }
+        const progress = step / totalSteps;
+        const idx = Math.floor(progress * (routeCoords.length - 1));
+        const frac = (progress * (routeCoords.length - 1)) % 1;
+
+        const lat = routeCoords[idx].lat + frac * (routeCoords[idx + 1]?.lat - routeCoords[idx].lat || 0);
+        const lng = routeCoords[idx].lng + frac * (routeCoords[idx + 1]?.lng - routeCoords[idx].lng || 0);
+
+        busMarker.setPosition({ lat, lng });
+        step++;
+      }, 300);   // speed of animation
     }
   </script>
 
