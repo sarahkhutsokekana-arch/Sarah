@@ -1,390 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brew & Bloom • Specialty Coffee</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --color-bg: #fafcfe;
-      --color-text: #1e2a38;
-      --color-accent: #0f4c75;      /* Deep teal blue */
-      --color-accent-light: #3282b8;
-      --color-cream: #ebf5ff;      /* Light blue tint */
-      --flip-duration: 0.6s;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-
-    /* ─── Hero ─── */
-    .hero {
-      height: 100vh;
-      min-height: 720px;
-      background: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.55)),
-                  url('https://static.wixstatic.com/media/3962bf_fcdd935cb9444d739616568dbd423ccf~mv2.png/v1/fill/w_980,h_658,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/3962bf_fcdd935cb9444d739616568dbd423ccf~mv2.png') center/cover no-repeat;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 780px;
-      padding: 0 24px;
-    }
-
-    .hero h1 {
-      font-size: clamp(3.8rem, 9vw, 7.2rem);
-      margin-bottom: 0.2em;
-      line-height: 0.92;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(1.35rem, 4vw, 2.1rem);
-      font-weight: 300;
-      margin: 0.4em 0 1.8em;
-      opacity: 0.92;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 38px;
-      background: var(--color-accent);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: all 0.28s;
-      border: 2px solid var(--color-accent);
-    }
-
-    .btn:hover {
-      background: white;
-      color: var(--color-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(15,76,117,0.22);
-    }
-
-    .btn-outline {
-      background: transparent;
-      margin-left: 1.4rem;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.15);
-    }
-
-    /* ─── Sections ─── */
-    section {
-      padding: 120px 24px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: clamp(2.8rem, 6vw, 4.8rem);
-      text-align: center;
-      margin-bottom: 1.2em;
-      color: var(--color-accent);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      margin-top: 4rem;
-    }
-
-    /* Flip Card Styles */
-    .flip-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-      height: 420px;              /* Fixed height for consistent flip */
-      perspective: 1000px;        /* 3D space */
-    }
-
-    .flip-card:hover {
-      box-shadow: 0 16px 50px rgba(15,76,117,0.18);
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform var(--flip-duration) ease;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .flip-card-front {
-      background: white;
-    }
-
-    .flip-card-back {
-      background: var(--color-cream);
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: var(--color-text);
-    }
-
-    .flip-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .card h3 {
-      font-size: 1.7rem;
-      margin-bottom: 0.6em;
-      color: var(--color-accent);
-    }
-
-    .back h3 {
-      margin-bottom: 1rem;
-    }
-
-    .back p {
-      margin: 0.6em 0;
-      font-size: 1.05rem;
-    }
-
-    .back .price {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--color-accent);
-      margin: 1.2em 0 0.8em;
-    }
-
-    /* ─── Location & Hours ─── */
-    .location-hours {
-      background: var(--color-cream);
-      text-align: center;
-    }
-
-    .hours-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      margin-top: 3.5rem;
-    }
-
-    /* ─── Footer ─── */
-    footer {
-      background: var(--color-accent);
-      color: white;
-      text-align: center;
-      padding: 80px 24px 60px;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.8rem;
-      margin: 0 18px;
-      opacity: 0.85;
-      transition: opacity 0.2s;
-    }
-
-    .social-links a:hover {
-      opacity: 1;
-    }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 4.8rem; }
-      .hero .subtitle { font-size: 1.5rem; }
-      section { padding: 80px 20px; }
-      .flip-card { height: 460px; }
-    }
-  </style>
+  <title>SafeRide School Transport • Durban</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Replace with your Google Maps API key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 </head>
-<body>
+<body class="bg-gray-50 font-sans">
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Brew & Bloom</h1>
-      <p class="subtitle">Specialty Coffee • Slow Mornings • Good Conversations</p>
-      
-      <div style="margin-top: 2.5rem;">
-        <a href="#menu" class="btn">See the Menu</a>
-        <a href="#visit" class="btn btn-outline">Find Us</a>
-      </div>
+  <!-- Top Bar -->
+  <header class="bg-indigo-700 text-white py-3 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <div class="text-2xl font-bold">SafeRide KZN</div>
+      <nav class="space-x-6">
+        <a href="#" class="hover:underline">Home</a>
+        <a href="#" class="hover:underline">Routes</a>
+        <a href="#" class="hover:underline">Contact</a>
+        <button class="bg-white text-indigo-700 px-4 py-1.5 rounded-full font-medium hover:bg-gray-100">
+          Login / Register
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- About / Vibe -->
-  <section id="about">
-    <div class="container">
-      <h2>Pouring Care in Every Cup</h2>
-      
-      <div style="max-width:760px; margin:0 auto; text-align:center; font-size:1.18rem;">
-        <p>We source single-origin beans from small farms we know personally.</p>
-        <p>We roast light-to-medium to let the origin character shine.</p>
-        <p>We pull shots with love, steam milk with patience, and hand over drinks with a smile.</p>
-        <p style="margin-top:2.5rem; font-style:italic; color:var(--color-accent);">
-          Come for the coffee. Stay for the calm.
-        </p>
-      </div>
-    </div>
-  </section>
+  <!-- Hero / Dashboard style -->
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-3 gap-6">
 
-  <!-- Signature Drinks (now flip cards) -->
-  <section id="menu" style="background:#eef5fb;">
-    <div class="container">
-      <h2>Signature Drinks</h2>
-      
-      <div class="grid-3">
-        <!-- Card 1 -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://dropinblog.net/34243353/files/featured/Flat_White_coffee_in_a_blue_cup.jpg" alt="Honey Flat White">
-              <div class="card-content">
-                <h3>Honey Flat White</h3>
-                <p>Double espresso, velvety microfoam, raw honey drizzle</p>
-              </div>
-            </div>
-            <div class="flip-card-back">
-              <h3>Honey Flat White</h3>
-              <p>Espresso • Steamed milk • Raw honey • Microfoam</p>
-              <p class="price">R 48</p>
-              <p style="font-style:italic;">Sweet, smooth, and golden — our morning hug in a cup.</p>
-            </div>
+      <!-- Left - Status Card -->
+      <div class="md:col-span-1 space-y-6">
+
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <i class="fas fa-child text-indigo-600"></i> Thandiwe M.
+          </h2>
+          <p class="text-gray-600 mb-1">Grade 5 • Bus A12</p>
+          <p class="text-sm text-green-600 font-medium">Next pickup: 07:18 • 4 min away</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <h3 class="font-semibold mb-3">Bus Status</h3>
+          <div class="space-y-2 text-sm">
+            <p><span class="font-medium">Driver:</span> Sipho N.</p>
+            <p><span class="font-medium">Current stop:</span> Umhlanga Rocks Dr</p>
+            <p><span class="font-medium">ETA to your stop:</span> <span class="text-indigo-700 font-bold">7 min</span></p>
           </div>
         </div>
-        
-        <!-- Card 2 -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://m.media-amazon.com/images/I/61cOu9bIUsL._AC_UF894,1000_QL80_.jpg" alt="Single-Origin Filter">
-              <div class="card-content">
-                <h3>Single-Origin Filter</h3>
-                <p>V60 or Kalita — changes weekly</p>
-              </div>
-            </div>
-            <div class="flip-card-back">
-              <h3>Single-Origin Filter</h3>
-              <p>Hand-poured • Freshly roasted single-origin beans • Weekly rotation</p>
-              <p class="price">R 42 – R 52</p>
-              <p style="font-style:italic;">Let the bean tell its story — pure and bright.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 3 -->
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://www.mrcoffee.com/on/demandware.static/-/Sites-mrcoffee-Library/default/dw7605f7e6/Mr.%20Coffee/2022%2009%20SEP/090622_IceCaramelLatte.jpg" alt="Iced Cardamom Oat Latte">
-              <div class="card-content">
-                <h3>Cardamom Oat Latte</h3>
-                <p>Iced or hot • house-made cardamom syrup</p>
-              </div>
-            </div>
-            <div class="flip-card-back">
-              <h3>Cardamom Oat Latte</h3>
-              <p>Oat milk • Espresso • House cardamom syrup • Cinnamon dusting</p>
-              <p class="price">R 54</p>
-              <p style="font-style:italic;">Warm spice meets creamy coolness — exotic yet comforting.</p>
-            </div>
-          </div>
-        </div>
+
+        <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-medium transition">
+          <i class="fas fa-exclamation-triangle mr-2"></i> Report Issue
+        </button>
       </div>
+
+      <!-- Right - Map -->
+      <div class="md:col-span-2">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden h-[500px]" id="map"></div>
+      </div>
+
     </div>
-  </section>
 
-  <!-- Visit Us -->
-  <section id="visit" class="location-hours">
-    <div class="container">
-      <h2>Come Say Hello</h2>
-      
-      <div class="hours-grid">
-        <div>
-          <h3>Durban – Florida Road</h3>
-          <p>148 Florida Rd, Windermere<br>Morningside, Durban</p>
-          <p style="margin-top:1.5rem;">
-            <strong>Mon–Fri</strong> 7:00 – 17:00<br>
-            <strong>Sat–Sun</strong> 7:30 – 16:30
-          </p>
-        </div>
-        
-        <div>
-          <h3>Opening Soon</h3>
-          <p>Umhlanga Ridge<br>(late 2026)</p>
-          <p style="margin-top:1.5rem; font-style:italic;">
-            Follow us for the exact opening date
-          </p>
-        </div>
-      </div>
+    <!-- Notifications area -->
+    <div class="mt-8 bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-bold mb-4">Recent Updates</h2>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3 text-sm">
+          <span class="text-green-500 mt-1">●</span>
+          <div>Bus A12 departed school at 14:02. On time.</div>
+        </li>
+        <li class="flex items-start gap-3 text-sm">
+          <span class="text-amber-500 mt-1">●</span>
+          <div>Minor traffic delay reported – ETA +3 minutes.</div>
+        </li>
+      </ul>
     </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <h2 style="color:white; margin-bottom:1.8rem;">Brew & Bloom</h2>
-      
-      <div class="social-links" style="margin:2rem 0 3rem;">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
-      </div>
-
-      <p style="opacity:0.8; font-size:0.95rem;">
-        © 2026 Brew & Bloom Coffee Co.<br>
-        Made with care in Durban, KwaZulu-Natal
-      </p>
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>© 2026 SafeRide School Transport • Durban, KwaZulu-Natal • Safety • Reliability • Peace of Mind</p>
     </div>
   </footer>
+
+  <script>
+    // Basic Google Map placeholder
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -29.8587, lng: 31.0218 }, // Durban approx coords
+        zoom: 12,
+      });
+      // You would normally add polyline for route + marker for current bus position
+      new google.maps.Marker({
+        position: { lat: -29.85, lng: 31.03 },
+        map,
+        title: "Bus A12 (live)",
+        icon: "https://maps.google.com/mapfiles/ms/icons/bus.png"
+      });
+    }
+  </script>
 
 </body>
 </html>
