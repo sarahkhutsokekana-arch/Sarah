@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">  <!-- Enables smooth scrolling globally -->
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SafeRide • School Transport – Mokopane</title>
+  <title>Komape School Transport • Safe Rides – Mokopane</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-  <!-- Google Maps JS API – replace YOUR_API_KEY -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <style>
     .card-hover:hover { transform: translateY(-4px); transition: all 0.25s ease; }
+    
     /* Floating WhatsApp button */
     .whatsapp-float {
       position: fixed;
@@ -34,14 +35,22 @@
       background-color: #20b858;
       transform: scale(1.1);
     }
-    /* Extra padding for sticky header overlap */
-    section { padding-top: 5rem; scroll-margin-top: 5rem; }
+
+    /* Prevent header overlap on scroll */
+    section {
+      padding-top: 5rem;
+      scroll-margin-top: 5rem;
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen font-sans antialiased">
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/27822869678?text=Hello%20SafeRide%2C%20I'd%20like%20more%20info%20about%20school%20transport%20from%20Ext%2014%2F19%2F20%20or%20Sekgakgapeng"
+  <a href="https://wa.me/27822869678?text=Hello%20Komape%20School%20Transport%2C%20I'd%20like%20more%20info%20about%20school%20transport%20from%20Ext%2014%2F19%2F20%20or%20Sekgakgapeng"
      class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -51,17 +60,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">SR</div>
-          <span class="text-xl font-semibold text-gray-900">SafeRide</span>
+          <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">KT</div>
+          <span class="text-xl font-semibold text-gray-900">Komape Transport</span>
         </div>
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#home" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
-          <a href="#routes" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Routes</a>
-          <a href="#safety" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Safety</a>
+          <a href="#home"    class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+          <a href="#routes"  class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Routes</a>
+          <a href="#safety"  class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Safety</a>
           <a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
         </nav>
         <div class="flex items-center gap-4">
-          <a href="https://wa.me/27822869678?text=Hello%20SafeRide%2C%20I'd%20like%20more%20info%20about%20school%20transport"
+          <a href="https://wa.me/27822869678?text=Hello%20Komape%20School%20Transport%2C%20I'd%20like%20more%20info"
              class="hidden sm:block px-5 py-2.5 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition shadow-sm flex items-center gap-2">
             <i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp
           </a>
@@ -76,21 +85,24 @@
   <!-- Main Content -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
 
-    <!-- Home Section (placeholder) -->
+    <!-- Home Section -->
     <section id="home" class="mb-16">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to Komape School Transport</h1>
-      <p class="text-lg text-gray-700">Safe, reliable daily transport for your children in Mokopane.</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Safe & Reliable School Transport in Mokopane</h1>
+      <p class="text-xl text-gray-700 max-w-3xl">
+        Daily transport from Extensions 14, 19, 20 and Sekgakgapeng to central Mokopane schools.
+      </p>
     </section>
 
-    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
-      <!-- Left sidebar – Status & Info -->
-      <div class="lg:col-span-4 space-y-6">
-        <!-- Child / Bus Card -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 mb-16">
+      <!-- Left sidebar -->
+      <div class="lg:col-span-4 space-y-6 order-2 lg:order-1">
+
+        <!-- Status Card -->
         <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 card-hover">
           <div class="flex items-center gap-4 mb-5">
             <div class="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-indigo-100">
-              <img src="https://media.istockphoto.com/id/1473960711/vector/3d-kid-avatar-set-cute-child-face-smile-icon-vector-young-school-teen-boy-girl-cartoon.jpg?s=1024x1024&w=is&k=20&c=uHQ1p1tg3A1rgDY24u-z2Z1RFJ6baS74XroX0mLrAUQ=" 
-                   alt="Komape School Transport avatar" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1503454537195-1dcabb9d2a69?w=150&h=150&fit=crop&auto=format" 
+                   alt="Happy school child" class="w-full h-full object-cover">
             </div>
             <div>
               <h2 class="text-xl font-semibold text-gray-900">Komape School Transport</h2>
@@ -103,14 +115,15 @@
               <span class="font-medium">Peter</span>
             </div>
             <div class="flex justify-between">
-              <span class="text-gray-600">Current location</span>
+              <span class="text-gray-600">Current area</span>
               <span class="font-medium">Mokopane</span>
             </div>
           </div>
         </div>
+
         <!-- Routes & Pricing -->
         <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 card-hover">
-          <h3 class="font-semibold text-gray-900 mb-4">Our Routes & Pricing</h3>
+          <h3 class="font-semibold text-gray-900 mb-4">Routes & Pricing</h3>
           <div class="space-y-3 text-sm">
             <p class="font-medium">Pickup Areas:</p>
             <ul class="list-disc pl-5 space-y-1 text-gray-700">
@@ -119,11 +132,12 @@
               <li>Extension 20</li>
               <li>Sekgakgapeng</li>
             </ul>
-            <p class="pt-2"><span class="font-medium">Destination:</span> Mokopane Town (Central Schools)</p>
-            <p class="pt-2 text-indigo-700 font-semibold">Monthly Fee: R550 per child</p>
-            <p class="text-xs text-gray-500">Safe, reliable daily transport • Includes tracking & notifications</p>
+            <p class="pt-3"><span class="font-medium">Destination:</span> Mokopane Town (Central Schools)</p>
+            <p class="pt-3 text-indigo-700 font-semibold text-lg">Monthly Fee: R550 per child</p>
+            <p class="text-xs text-gray-500 mt-2">Includes daily transport • Parent notifications • Safe drivers</p>
           </div>
         </div>
+
         <!-- Quick Actions -->
         <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100 card-hover">
           <h3 class="font-semibold text-gray-900 mb-4">Quick Actions</h3>
@@ -138,153 +152,119 @@
             </button>
           </div>
         </div>
-        <!-- Contact Quick with WhatsApp -->
-        <a href="https://wa.me/27822869678?text=Hello%20SafeRide%2C%20I'd%20like%20more%20info%20about%20school%20transport%20from%20Ext%2014%2F19%2F20%20or%20Sekgakgapeng"
+
+        <!-- WhatsApp Contact Card -->
+        <a href="https://wa.me/27822869678?text=Hello%20Komape%20School%20Transport%2C%20I'd%20like%20more%20info%20about%20school%20transport%20from%20Ext%2014%2F19%2F20%20or%20Sekgakgapeng"
            class="block bg-green-50 rounded-2xl shadow-md p-6 border border-green-100 text-center hover:bg-green-100 transition">
           <h3 class="font-semibold text-green-800 mb-3">Chat with Us on WhatsApp</h3>
           <p class="text-lg font-bold text-green-700">082 286 9678</p>
-          <p class="text-sm text-gray-600 mt-1">Tap to start chat • Fast response</p>
-          <i class="fab fa-whatsapp text-4xl text-green-600 mt-3"></i>
+          <p class="text-sm text-gray-600 mt-1">Fast response • Tap to message</p>
+          <i class="fab fa-whatsapp text-5xl text-green-600 mt-4"></i>
         </a>
       </div>
 
-      <!-- Right – Main Map Area -->
-      <div class="lg:col-span-8">
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 h-[500px] lg:h-[620px]" id="map"></div>
+      <!-- Right – Mock Map Section -->
+      <div class="lg:col-span-8 order-1 lg:order-2">
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 relative h-[500px] lg:h-[620px]">
+          <!-- Mock map image -->
+          <img 
+            src="https://images.unsplash.com/photo-1524666041070-9d87656c25bb?w=1200&auto=format&fit=crop&q=80"
+            alt="Mock school bus route map Mokopane area"
+            class="w-full h-full object-cover"
+          >
+          <!-- Overlay text / legend -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex flex-col justify-end p-6 pointer-events-none">
+            <div class="bg-white/90 backdrop-blur-sm px-6 py-4 rounded-xl max-w-md">
+              <h4 class="font-bold text-gray-900 mb-2">Komape School Transport Route</h4>
+              <p class="text-sm text-gray-800">
+                Sekgakgapeng → Ext 14/19/20 → Mokopane Central Schools<br>
+                Daily • Safe • Tracked
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Routes Section (placeholder) -->
-    <section id="routes" class="mt-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Routes</h2>
-      <p class="text-gray-700">Detailed information about pickup points, times, and more coming soon.</p>
+    <!-- Routes Section -->
+    <section id="routes" class="mt-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Routes</h2>
+      <div class="prose prose-lg max-w-none text-gray-700">
+        <p>We provide daily school transport from the following areas to central Mokopane schools:</p>
+        <ul class="list-disc pl-6 space-y-2 mt-4">
+          <li>Extension 14</li>
+          <li>Extension 19</li>
+          <li>Extension 20</li>
+          <li>Sekgakgapeng</li>
+        </ul>
+        <p class="mt-6">Morning pickup: ~06:30–07:00 | Afternoon drop-off: ~14:30–15:30 (school dependent)</p>
+      </div>
     </section>
 
-    <!-- Safety Section (placeholder) -->
-    <section id="safety" class="mt-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Safety First</h2>
-      <p class="text-gray-700">Real-time tracking, vetted drivers, insured vehicles, and daily checks.</p>
+    <!-- Safety Section -->
+    <section id="safety" class="mt-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Safety Comes First</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+          <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Vetted & Trained Drivers</h3>
+          <p class="text-gray-700">All drivers undergo background checks, hold valid PDPs, and receive regular safety training.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+          <div class="text-indigo-600 text-4xl mb-4"><i class="fas fa-map-marker-alt"></i></div>
+          <h3 class="text-xl font-semibold mb-3">Route Monitoring</h3>
+          <p class="text-gray-700">Pre-approved safe routes with parent location sharing (feature coming soon).</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section (placeholder) -->
-    <section id="contact" class="mt-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-      <p class="text-gray-700">Preferred contact via WhatsApp: 082 286 9678</p>
+    <!-- Contact Section -->
+    <section id="contact" class="mt-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+      <div class="bg-indigo-50 rounded-2xl p-8 md:p-12 text-center">
+        <p class="text-xl text-gray-800 mb-6">Questions? Ready to enroll? Message us – we usually reply within minutes during business hours.</p>
+        <a href="https://wa.me/27822869678?text=Hello%20Komape%20School%20Transport"
+           class="inline-flex items-center gap-3 px-8 py-4 bg-green-600 text-white text-lg font-semibold rounded-full hover:bg-green-700 transition shadow-lg">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          Message on WhatsApp: 082 286 9678
+        </a>
+      </div>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 mt-12 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm">
-      <p class="font-medium">SafeRide School Transport • Mokopane, Limpopo</p>
-      <p class="mt-2">
-        Contact: <a href="https://wa.me/27822869678?text=Hello%20SafeRide" class="text-green-600 hover:underline">082 286 9678</a>
-        (WhatsApp preferred)
+  <footer class="bg-gray-900 text-gray-300 mt-16 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-lg font-medium text-white">Komape School Transport • Mokopane, Limpopo</p>
+      <p class="mt-3">
+        Contact: <a href="https://wa.me/27822869678" class="text-green-400 hover:text-green-300 underline">082 286 9678</a> (WhatsApp preferred)
       </p>
-      <p class="mt-1">Routes from Ext 14, 19 & 20, Sekgakgapeng to Mokopane Town • R550/child/month</p>
-      <p class="mt-1">Safety • Real-time Tracking • Peace of Mind for Parents</p>
+      <p class="mt-2">Monthly: R550 per child • Safe • Reliable • Parent notifications</p>
+      <p class="mt-6 text-sm">© 2025 Komape School Transport. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Google Maps Script – Mokopane -->
+  <!-- JavaScript -->
   <script>
-    let map, busMarker, busRoute;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -24.194, lng: 29.010 },
-        zoom: 13,
-        styles: [
-          { featureType: "water", elementType: "geometry", stylers: [{ color: "#e9e9e9" }, { lightness: 17 }] },
-          { featureType: "landscape", elementType: "geometry", stylers: [{ color: "#f5f5f5" }, { lightness: 20 }] },
-          { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#ffffff" }, { lightness: 17 }] },
-          { featureType: "road", elementType: "geometry", stylers: [{ color: "#ffffff" }, { lightness: 40 }] },
-          { featureType: "poi", elementType: "geometry", stylers: [{ color: "#f5f5f5" }, { lightness: 21 }] },
-        ]
-      });
-
-      new google.maps.Marker({
-        position: { lat: -24.194, lng: 29.010 },
-        map: map,
-        title: "Mokopane Town / School",
-        icon: { url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png" }
-      });
-
-      new google.maps.Marker({
-        position: { lat: -24.111, lng: 29.046 },
-        map: map,
-        title: "Pickup Zones (Ext 14/19/20 & Sekgakgapeng)",
-        icon: { url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png" }
-      });
-
-      const routeCoords = [
-        { lat: -24.111, lng: 29.046 },
-        { lat: -24.15, lng: 29.03 },
-        { lat: -24.18, lng: 29.015 },
-        { lat: -24.194, lng: 29.010 }
-      ];
-
-      busRoute = new google.maps.Polyline({
-        path: routeCoords,
-        geodesic: true,
-        strokeColor: "#6366f1",
-        strokeOpacity: 0.7,
-        strokeWeight: 5,
-        map: map
-      });
-
-      busMarker = new google.maps.Marker({
-        position: routeCoords[0],
-        map: map,
-        title: "Bus A12 (Live)",
-        icon: {
-          url: "https://maps.google.com/mapfiles/ms/icons/bus.png",
-          scaledSize: new google.maps.Size(40, 40)
-        },
-        animation: google.maps.Animation.DROP
-      });
-
-      let step = 0;
-      const totalSteps = routeCoords.length * 30;
-      const interval = setInterval(() => {
-        if (step > totalSteps) { clearInterval(interval); return; }
-        const progress = step / totalSteps;
-        const idx = Math.floor(progress * (routeCoords.length - 1));
-        const frac = (progress * (routeCoords.length - 1)) % 1;
-        const lat = routeCoords[idx].lat + frac * (routeCoords[idx + 1]?.lat - routeCoords[idx].lat || 0);
-        const lng = routeCoords[idx].lng + frac * (routeCoords[idx + 1]?.lng - routeCoords[idx].lng || 0);
-        busMarker.setPosition({ lat, lng });
-        step++;
-      }, 400);
-    }
-  </script>
-
-  <!-- Smooth Scroll + Active Link Highlight -->
-  <script>
-    // Smooth scroll on click (fallback + prevents default if needed)
+    // Smooth scrolling
     document.querySelectorAll('.nav-link').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // Highlight active nav link on scroll
+    // Active link
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('section[id]');
       const navLinks = document.querySelectorAll('.nav-link');
-
       let current = '';
 
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100; // offset for header height
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) current = section.getAttribute('id');
       });
 
       navLinks.forEach(link => {
@@ -293,6 +273,11 @@
           link.classList.add('text-indigo-600', 'font-semibold');
         }
       });
+    });
+
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
 
